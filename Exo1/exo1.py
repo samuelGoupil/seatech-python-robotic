@@ -63,18 +63,18 @@ class Robot():
 
 walle = Robot('Walle',False,0,0)
 
-print(walle.get_name())
-print(walle.get_power())
+walle.get_name()
+walle.get_power()
 walle.allumage()
-print(walle.get_power())
-print(walle.get_speed())
+walle.get_power()
+walle.get_speed()
 walle.set_speed(15)
-print(walle.get_speed())
+walle.get_speed()
 walle.stop()
-print(walle.get_speed())
-print(walle.get_states())
+walle.get_speed()
+walle.get_states()
 walle.eteindre()
-print(walle.get_states())
+walle.get_states()
 
 
 
