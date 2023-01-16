@@ -7,12 +7,10 @@ class UnmannedVehicle(metaclass=ABCMeta):
         An autonomous vehicle have to do his mission automatically.
         This mission can be configured by an operator.
     """
-    @property
     @abstractmethod
     def start(self):
         pass
 
-    @property
     @abstractmethod
     def stop(self):
         pass
@@ -20,44 +18,57 @@ class UnmannedVehicle(metaclass=ABCMeta):
 
 
 class AerialVehicle(metaclass=ABCMeta):
-    @property
     @abstractmethod
     def fly(self):
         pass
 
 class GroundVehicle(metaclass=ABCMeta):
-    @property
     @abstractmethod
     def moove(self):
         pass
 
 class UnderseaVehicle(metaclass=ABCMeta):
-    @property
     @abstractmethod
     def navigate(self):
         pass
 
-class UAV(AerialVehicle):
+class UAV(UnmannedVehicle, AerialVehicle):
+    def start(self):
+        print("I'm ready to fly")
+    def stop(self):
+        print("I had landed")
     def fly(self):
         print("I'm flying")
 
-class UUV(UnderseaVehicle):
+class UUV(UnmannedVehicle, UnderseaVehicle):
+    def start(self):
+        print("I'm ready to navigate")
+    def stop(self):
+        print("I'm docked")
     def navigate(self):
         print("I'm swimming")
 
-class UGV():
+class UGV(UnmannedVehicle, GroundVehicle):
+    def start(self):
+        print("I'm ready to moove")
+    def stop(self):
+        print("I had stop mooving")
     def moove(self):
         print("I'm mooving")
 
 
 uav = UAV()
-uav.do_something_interesting()
-uav.do_something_aerial_specific()
+uav.start()
+uav.stop()
+uav.fly()
 
 ugv = UGV()
-ugv.do_something_interesting()
-ugv.do_something_ground_specific()
+ugv.start()
+ugv.stop()
+print(ugv.moove)
 
 uuv = UUV()
-uuv.do_something_interesting()
-uuv.do_something_undersea_specific()
+uuv.start()
+uuv.stop()
+uuv.navigate()
+
