@@ -1,0 +1,89 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "../protos/CircleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/MattePaint.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/toys/protos/RubberDuck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/solids/protos/SolidBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/rec/fabtino/protos/Fabtino.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.01242755012481483 -0.0037074090179300646 -0.9999159020218995 2.916557645394538
+  position 17.016297751802107 3.6660200191054813 3.484081332801078
+}
+TexturedBackground {
+  texture "noon_stormy_empty"
+}
+TexturedBackgroundLight {
+  luminosity 1.5
+}
+RubberDuck {
+  translation 3.7187594927675742 3.733944479494878 2.178291189669854
+  rotation 0.023976133613411523 0.0065485757529549155 0.9996910828713836 0.716751342889118
+  name "duck1"
+  scale 7
+}
+RubberDuck {
+  translation -3.7373077138799826 -3.694816157567358 2.1782885269490637
+  rotation 0.005120743678446121 -0.008322104110216551 0.9999522591440845 -2.2165882347986887
+  name "duck3"
+  scale 7
+  bodyColor 0.878431 0.105882 0.141176
+}
+RubberDuck {
+  translation -3.7260990823077287 3.744012719724145 2.180440445493762
+  rotation 0.006507456996969268 -0.001952942562627161 0.9999769192430292 2.4027460088207353
+  name "duck4"
+  scale 7
+  bodyColor 0.878431 0.105882 0.141176
+}
+RubberDuck {
+  translation 3.730019668714534 -3.696195166701468 2.178286921664702
+  rotation 0.020257957573402853 -0.010755524839111297 -0.9997369323178922 0.7832077200980675
+  name "duck2"
+  scale 7
+  bodyColor 0.180392 0.760784 0.494118
+}
+CircleArena {
+  name "defeat arena"
+  radius 8
+  floorAppearance MattePaint {
+    baseColor 0.300008 0.0119936 0.0119936
+  }
+}
+SolidBox {
+  translation 0 0 2
+  rotation 0.707084957913509 0.707084957913509 0.007856499532372323 0
+  name "arena"
+  size 8 8 0.1
+  appearance PBRAppearance {
+    baseColor 0 0 0
+    baseColorMap ImageTexture {
+    }
+    roughness 0.5
+    metalness 0
+  }
+}
+Fabtino {
+  hidden position_0_0 5.566131309215333e-09
+  hidden position_0_1 5.567205346993819e-09
+  hidden position_0_2 -5.567204881539419e-09
+  hidden position_0_3 -5.5661256069964925e-09
+  hidden linearVelocity_0 -6.402311092054099e-16 6.162617528333316e-16 -5.881399071464936e-15
+  hidden angularVelocity_0 2.9926483516965205e-16 -2.9200312469608877e-15 8.243753945334417e-16
+  hidden linearVelocity_1 -2.473241861693846e-16 7.099810457518126e-16 3.628121524012568e-15
+  hidden angularVelocity_1 -1.0836650281054882e-14 -3.443393303790794e-15 8.146226058068429e-16
+  hidden linearVelocity_2 -2.4875889842251615e-16 -1.421258848183165e-16 -2.214671962426938e-16
+  hidden angularVelocity_2 -1.7672464017870302e-15 -3.4659883078937647e-15 8.185200675258213e-16
+  hidden linearVelocity_3 -4.0659893811211794e-16 8.401331020005265e-16 -1.0419329109043535e-16
+  hidden angularVelocity_3 -2.8261437848879903e-15 -3.742270413596702e-15 8.28930803492508e-16
+  hidden linearVelocity_4 -5.014619244243362e-16 7.307144255022192e-16 4.383673539537801e-15
+  hidden angularVelocity_4 -4.890952355134764e-15 -3.429832921043451e-15 8.230607564898461e-16
+  translation 1.3262796254219884e-11 6.778955764287176e-08 2.107076884046727
+  rotation -0.05948010056196145 1.111841461631008e-05 0.9982294914064199 4.533521678258882e-07
+  name "Fa"
+  controller "my_controller"
+}
