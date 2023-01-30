@@ -21,17 +21,17 @@ class SmashRobotMotors():
     
     def go_right(self):
         self.__left_wheel__motor.setVelocity(15)
-        self.__right_wheel__motor.setVelocity(-15)
+        self.__right_wheel__motor.setVelocity(0)
         
         
     def go_left(self):
-        self.__left_wheel__motor.setVelocity(-15)
+        self.__left_wheel__motor.setVelocity(0)
         self.__right_wheel__motor.setVelocity(15)
         
 
     def go_front(self):
-        self.__left_wheel__motor.setVelocity(10)
-        self.__right_wheel__motor.setVelocity(10)
+        self.__left_wheel__motor.setVelocity(50)
+        self.__right_wheel__motor.setVelocity(50)
         
 
     def go_back(self):
@@ -86,7 +86,6 @@ class Robotfighter(Robot):
 fa=Robotfighter()
 timestep = int(fa.getBasicTimeStep())
 
-fa.go_right()
 # Main loop:
 # - perform simulation steps until Webots is stopping the controller
 while fa.step(timestep) != -1:
@@ -98,10 +97,13 @@ while fa.step(timestep) != -1:
 
     # Enter here functions to send actuator commands, like:
     #  motor.setPosition(10.0)
-    print(fa.gps.getCoordinateSystem())
+    
     print(fa.gps.getValues())
     print("espace")
     fa.get_myPosition()
+    fa.go_front()
+    fa.go_right()
+    fa.go_right()
     pass
 
 
