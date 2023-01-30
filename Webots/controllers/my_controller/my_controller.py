@@ -2,6 +2,7 @@
 
 # You may need to import some classes of the controller module. Ex:
 #  from controller import Robot, Motor, DistanceSensor
+from time import sleep
 from controller import Robot, Motor, DistanceSensor, GPS
 #from EpuckMotors import EpuckMotors
 
@@ -32,11 +33,15 @@ class SmashRobotMotors():
     def go_front(self):
         self.__left_wheel__motor.setVelocity(50)
         self.__right_wheel__motor.setVelocity(50)
+    
+    def reset_speed(self):
+        self.__left_wheel__motor.setVelocity(0)
+        self.__right_wheel__motor.setVelocity(0)
         
 
     def go_back(self):
-        self.__left_wheel__motor.setVelocity(-5)
-        self.__right_wheel__motor.setVelocity(-5)
+        self.__left_wheel__motor.setVelocity(-50)
+        self.__right_wheel__motor.setVelocity(-50)
 
 
 class RobotGPS(GPS):
@@ -61,7 +66,7 @@ class Robotfighter(Robot):
         super().__init__()
         self.motors=SmashRobotMotors()
         self.gps=RobotGPS(self.getBasicTimeStep())
-        my_position=self.gps.getValues()
+        self.my_position=None
 
     def go_left(self):
         self.motors.go_left()
@@ -74,9 +79,13 @@ class Robotfighter(Robot):
 
     def go_back(self):
         self.motors.go_back()
+
+    def reset_speed(self):
+        self.motors.reset_speed()
     
     def get_myPosition(self):
-        print(self.get_myPosition)
+        print(self.my_position)
+
 
 
         
@@ -97,14 +106,33 @@ while fa.step(timestep) != -1:
 
     # Enter here functions to send actuator commands, like:
     #  motor.setPosition(10.0)
-    
-    print(fa.gps.getValues())
-    print("espace")
     fa.get_myPosition()
-    fa.go_front()
-    fa.go_right()
-    fa.go_right()
-    pass
+    fa.my_position=fa.gps.getValues()
+    if fa.my_position[0] < 0.75 and fa.my_position[0] > -0.75 and fa.my_position[1] < 0.75 and fa.my_position[1] :
+        print(fa.my_position[0])
+        fa.reset_speed()
+        fa.go_front()
+        fa.go_right()
+    else :
+        fa.reset_speed()
+    #    fa.go_front()
+            
+
+        
+
+
+
+
+
+
+
+        
+    #print(fa.gps.getValues())
+    #print("espace")
+    #fa.get_myPosition()
+    #fa.go_front()
+    #fa.go_right()
+    #fa.go_right()
 
 
 # Enter here exit cleanup code.
